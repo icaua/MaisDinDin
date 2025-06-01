@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mais Dindin - Despesas por Categoria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container main-container">
+        <div class="header-back mb-4 d-flex align-items-center">
+            <a href="home.html" class="me-3"><i class="fas fa-arrow-left fa-lg"></i></a>
+            <h4 class="mb-0 fw-bold">Despesas por Categoria</h4>
+        </div>
+
+        <div class="content-section">
+            <div class="row align-items-center">
+                <div class="col-lg-5 text-center mb-4 mb-lg-0">
+                    <div id="pieChartContainer">
+                        <div class="pie-chart-placeholder-lg"></div> </div>
+                </div>
+                <div class="col-lg-7">
+                    <h6 class="section-title">Distribuição de Despesas</h6>
+                    <ul class="legend" id="categoryLegend">
+                        <p class="text-white-50">Carregando dados...</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h6 class="section-title">Meta de Economia Mensal</h6>
+            <p class="mb-1 small text-white-50">Sua meta é economizar R$ 1.000 este mês. (Exemplo)</p>
+            <div class="progress progress-custom mb-1" role="progressbar" aria-label="Progresso economia" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-custom" style="width: 75%"></div>
+            </div>
+            <div class="d-flex justify-content-between footer-text">
+                <span>Progresso Atual</span>
+                <span>75% (Exemplo)</span>
+            </div>
+        </div>
+        <div class="content-section">
+             <h6 class="section-title text-warning"><i class="fas fa-chart-line me-2"></i>Análise Comparativa</h6>
+            <p class="mb-2" id="comparativeAnalysisText">
+                Carregando análise...
+            </p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    </body>
+</html>

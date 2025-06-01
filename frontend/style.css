@@ -1,0 +1,164 @@
+body {
+     background-color: #0D1B2A; /* Azul escuro principal do fundo */
+     color: #FFFFFF; /* Texto branco padrão */
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+ }
+
+ .main-container {
+     flex-grow: 1;
+     padding-top: 20px;
+     padding-bottom: 20px;
+ }
+
+ .app-logo {
+     font-size: 3rem;
+     font-weight: bold;
+     color: #FFCA28; /* Amarelo */
+     margin-bottom: 0;
+ }
+
+ .app-title-text {
+     font-size: 1.5rem;
+     font-weight: bold;
+     color: #FFCA28; /* Amarelo */
+     letter-spacing: 2px;
+ }
+
+ .form-control, .form-select {
+     background-color: #1B263B; /* Azul mais escuro para inputs */
+     border: 1px solid #495057; /* Borda sutil */
+     color: #FFFFFF;
+     border-radius: 0.375rem; 
+     padding: 0.75rem 1rem;
+ }
+
+ .form-control:focus, .form-select:focus {
+     background-color: #1B263B;
+     color: #FFFFFF;
+     border-color: #FFCA28;
+     box-shadow: 0 0 0 0.25rem rgba(255, 202, 40, 0.25);
+ }
+
+ .form-control::placeholder { color: #adb5bd; }
+ .form-label { color: #adb5bd; margin-bottom: 0.5rem; }
+
+ .btn-primary-custom {
+     background-color: #FFCA28; 
+     border-color: #FFCA28;
+     color: #0D1B2A; 
+     font-weight: bold;
+     padding: 0.75rem 1.5rem;
+     width: 100%;
+ }
+ .btn-primary-custom:hover {
+     background-color: #e0b024;
+     border-color: #e0b024;
+     color: #0D1B2A;
+ }
+
+ .link-custom { color: #FFCA28; text-decoration: none; }
+ .link-custom:hover { color: #e0b024; text-decoration: underline; }
+
+ .login-container {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     min-height: 90vh;
+ }
+
+ /* Home Page Specific */
+ .home-header {
+     display: flex;
+     align-items: center;
+     margin-bottom: 25px;
+     padding-bottom: 20px;
+     border-bottom: 1px solid #1B263B;
+ }
+ .home-header .app-logo { font-size: 2.5rem; margin-right: 15px; }
+ .home-header .app-title-text { font-size: 1.6rem; margin-bottom: 0; }
+
+ .content-section {
+     background-color: #1B263B;
+     padding: 20px;
+     border-radius: 0.5rem;
+     margin-bottom: 25px;
+     border: 1px solid #2c3e50;
+ }
+ .section-title {
+     color: #FFCA28;
+     font-size: 1.1rem;
+     font-weight: 500;
+     margin-bottom: 15px;
+     padding-bottom: 10px;
+     border-bottom: 1px solid #495057;
+ }
+
+ .saldo-section { text-align: center; }
+ .saldo-section .saldo-label { font-size: 1rem; color: #adb5bd; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.25rem; }
+ .saldo-section .saldo-amount { font-size: 3.2rem; font-weight: 700; color: #FFFFFF; line-height: 1.1; margin-bottom: 0.5rem; }
+ .saldo-section .saldo-description { font-size: 0.9rem; color: #FFCA28; }
+ .saldo-section .saldo-description:hover { color: #e0b024; }
+ 
+ .action-button-home {
+     background-color: #1B263B; color: #FFFFFF; border: 1px solid #495057;
+     display: flex; flex-direction: column; align-items: center; justify-content: center;
+     padding: 1.25rem; border-radius: 0.5rem; text-decoration: none;
+     transition: background-color 0.2s ease-in-out;
+ }
+ .action-button-home:hover { background-color: #2a3b50; color: #FFFFFF; }
+ .action-button-home i { font-size: 1.8rem; margin-bottom: 0.75rem; }
+ .action-button-home span { font-size: 1rem; font-weight: 500; }
+
+ .text-despesa { color: #DC3545; font-weight: bold; }
+ .text-receita { color: #198754; font-weight: bold; }
+ 
+ .list-group-item-custom {
+     background-color: #1B263B; border: 1px solid #2c3e50; color: #FFFFFF;
+     margin-bottom: 10px; border-radius: 0.375rem; padding: 1rem 1.25rem;
+     border-left: 3px solid transparent; transition: background-color 0.2s ease-in-out;
+ }
+ .list-group-item-custom:hover { background-color: #2a3b50; }
+ .list-group-item-custom p { margin-bottom: 0.1rem; }
+ .list-group-item-custom small { font-size: 0.8rem; color: #adb5bd !important; }
+ .list-group-item-custom .transaction-icon { margin-right: 10px; color: #adb5bd; width: 20px; text-align: center; }
+
+ .btn-see-all {
+     display: block; width: 100%; text-align: center; padding: 0.85rem;
+     background-color: transparent; color: #FFCA28; text-decoration: none;
+     border-radius: 0 0 0.5rem 0.5rem; border-top: 1px solid #2c3e50;
+     font-weight: 500; transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+ }
+ .btn-see-all:hover { background-color: #FFCA28; color: #0D1B2A; }
+
+ /* Despesas por Categoria */
+ .header-back { font-size: 1.2rem; color: #FFFFFF; }
+ .header-back a { color: #FFFFFF; text-decoration: none; }
+ .header-back a:hover { color: #FFCA28; }
+
+ .pie-chart-placeholder-lg {
+     width: 200px; height: 200px; border-radius: 50%;
+     background: conic-gradient(#3A8DDE 0% 20%, #FFCA28 20% 45%, #122a42 45% 80%, #1B4972 80% 100%);
+     border: 4px solid #0D1B2A; margin: 0 auto 20px auto;
+ }
+ .legend { list-style: none; padding-left: 0; }
+ .legend-item { display: flex; align-items: center; margin-bottom: 8px; font-size: 0.9rem; }
+ .legend-color-box { width: 18px; height: 18px; margin-right: 10px; border-radius: 3px; flex-shrink: 0; }
+ .progress-custom { height: 12px; background-color: #0D1B2A; border-radius: 6px; }
+ .progress-bar-custom { background-color: #FFCA28; border-radius: 6px; }
+ .footer-text { font-size: 0.8rem; color: #adb5bd; }
+
+ @media (min-width: 768px) { /* md e acima */
+   .saldo-section .saldo-amount { font-size: 3.8rem; }
+   .action-button { padding: 1.25rem; }
+   .action-button i { font-size: 1.75rem; }
+   .action-button span { font-size: 1.1rem; }
+   .pie-chart-placeholder-lg { width: 220px; height: 220px; margin-bottom: 0; }
+   .legend-item { font-size: 1rem; }
+ }
+ @media (min-width: 992px) { /* lg e acima */
+     .pie-chart-placeholder-lg { width: 250px; height: 250px; }
+     .legend { padding-left: 20px; }
+ }

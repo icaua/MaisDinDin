@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+ <html lang="pt-BR">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Mais Dindin - Login</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+     <div class="container main-container login-container">
+         <div class="row justify-content-center">
+             <div class="col-md-6 col-lg-4">
+                 <div class="text-center mb-4">
+                     <i class="fas fa-dollar-sign app-logo"></i>
+                     <h1 class="app-title-text mt-2">MAIS DINDIN</h1>
+                 </div>
+                 <form id="loginForm">
+                     <div class="mb-3">
+                         <input type="email" class="form-control" id="email" placeholder="E-MAIL" required>
+                     </div>
+                     <div class="mb-3">
+                         <input type="password" class="form-control" id="senha" placeholder="SENHA" required>
+                     </div>
+                     <div class="mb-3 text-end">
+                         <a href="#" class="link-custom text-uppercase" style="font-size: 0.8rem;">Esqueceu a senha?</a>
+                     </div>
+                     <div id="message" class="mb-3"></div>
+                     <button type="submit" class="btn btn-primary-custom text-uppercase" id="btnLogin">Entrar</button>
+                 </form>
+                 <div class="text-center mt-4">
+                     <a href="register.html" class="link-custom text-uppercase" style="font-size: 0.8rem;">Não possui cadastro? Cadastre-se</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="js/auth.js"></script> <script src="js/login.js" defer></script>
+ </body>
+ </html>

@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String?
+  cpf       String?  @unique // CPF opcional no DB, mas pode ser obrigatório no form
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Adicionar futuramente relações com despesas e receitas
+  // despesas Despesa[]
+  // receitas Receita[]
+}
+
+// Modelos para Despesas e Receitas (exemplo futuro)
+/*
+model Despesa {
+  id          Int      @id @default(autoincrement())
+  descricao   String
+  valor       Float
+  data        DateTime
+  observacao  String?
+  userId      Int
+  usuario     User     @relation(fields: [userId], references: [id])
+  // categoriaId Int
+  // categoria   CategoriaDespesa @relation(fields: [categoriaId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Receita {
+  id          Int      @id @default(autoincrement())
+  descricao   String
+  valor       Float
+  data        DateTime
+  observacao  String?
+  userId      Int
+  usuario     User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+*/
