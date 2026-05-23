@@ -1,54 +1,92 @@
-# 💰 Mais Dindin - Gerenciador Financeiro Pessoal
+# Mais Dindin
 
-Bem-vindo ao Mais Dindin! Este é um projeto de aplicativo web desenvolvido para auxiliar no controle e gerenciamento de finanças pessoais.
+Aplicacao web simples para controle financeiro pessoal.
 
-## ✨ Sobre o Projeto
+## Tecnologias
 
-O objetivo do Mais Dindin é fornecer uma plataforma simples e intuitiva para que os usuários possam registrar suas receitas e despesas, categorizá-las e ter uma visão clara de sua saúde financeira.
+- Node.js
+- Express
+- Prisma ORM
+- SQLite
+- JWT
+- bcryptjs
+- HTML, CSS e JavaScript vanilla
 
-**Estado Atual:** O projeto está em desenvolvimento. As funcionalidades de cadastro de usuário (com validação de CPF e senha segura), login com autenticação JWT e um painel inicial que exibe informações do perfil do usuário logado já estão implementadas.
+## Como rodar o backend
 
-## 🚀 Tecnologias Utilizadas
+Entre na pasta do backend:
 
-* **Backend:**
-    * Node.js
-    * Express.js
-    * Prisma ORM com SQLite
-    * JSON Web Tokens (JWT) para autenticação
-    * bcryptjs para hashing de senhas
-    * dotenv para variáveis de ambiente
-* **Frontend:**
-    * HTML5
-    * CSS3 (com estilos customizados e Bootstrap 5)
-    * JavaScript (Vanilla)
+```bash
+cd backEnd
+```
 
-## 🛠️ Funcionalidades Implementadas
-* Cadastro de novos usuários (Nome, Email, CPF com validação, Senha com hash).
-* Login de usuários existentes.
-* Autenticação e autorização baseada em JWT.
-* Página Home que exibe o nome do usuário logado e um saldo (placeholder).
-* Validação de CPF no lado do cliente e do servidor.
-* Logout do sistema.
+Instale as dependencias:
 
-## 🏁 Como Rodar Localmente
+```bash
+npm install
+```
 
-### Pré-requisitos
-* Node.js (versão 18.x ou superior recomendada)
-* npm (geralmente vem com o Node.js)
+Crie um arquivo `.env` dentro de `backEnd`:
 
-### Backend
-1.  Clone este repositório.
-2.  Navegue até a pasta do backend: `cd meu-app-backend`
-3.  Instale as dependências: `npm install`
-4.  Crie um arquivo `.env` na raiz da pasta `meu-app-backend` e adicione as seguintes variáveis (substitua os valores conforme necessário):
-    ```env
-    DATABASE_URL="file:./prisma/dev.db"
-    JWT_SECRET="SUA_CHAVE_SECRETA_MUITO_FORTE_AQUI"
-    ```
-5.  Execute as migrations do Prisma para criar o banco de dados: `npx prisma migrate dev`
-6.  Inicie o servidor backend: `npm run dev` (ele estará rodando em `http://localhost:3000`)
+```env
+DATABASE_URL="file:./dev.db"
+JWT_SECRET="troque_por_uma_chave_segura"
+```
 
-### Frontend
-1.  Abra os arquivos HTML (ex: `frontend/login.html`) diretamente no seu navegador.
+Rode as migrations do Prisma:
 
----
+```bash
+npx prisma migrate dev
+```
+
+Gere o Prisma Client, se necessario:
+
+```bash
+npx prisma generate
+```
+
+Opcionalmente, rode o seed:
+
+```bash
+node seed.js
+```
+
+Inicie o servidor:
+
+```bash
+npm run dev
+```
+
+O backend ficara disponivel em `http://localhost:3000`.
+
+## Como abrir o frontend
+
+Abra o arquivo `frontend/login.html` no navegador.
+
+Fluxo esperado:
+
+1. Cadastre uma conta em `frontend/register.html`.
+2. Faca login em `frontend/login.html`.
+3. Acesse a home.
+4. Registre receitas e despesas.
+5. Veja saldo e ultimas movimentacoes atualizadas.
+
+## Rotas disponiveis
+
+### Autenticacao
+
+- `POST /register`: cadastra usuario com nome, email, CPF e senha.
+- `POST /login`: autentica usuario e retorna token JWT.
+- `GET /api/profile`: retorna dados do usuario logado.
+
+### Financeiro
+
+- `POST /api/transactions`: cria receita ou despesa para o usuario logado.
+- `GET /api/transactions`: lista transacoes do usuario logado.
+- `GET /api/dashboard`: retorna saldo, receitas, despesas, ultimas movimentacoes e resumo por categoria.
+
+## Observacoes
+
+- As rotas financeiras exigem header `Authorization: Bearer <token>`.
+- O frontend nao envia `userId`; o backend identifica o usuario pelo token JWT.
+- O tipo da transacao deve ser `IN` para receita ou `OUT` para despesa.

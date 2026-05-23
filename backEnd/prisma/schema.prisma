@@ -8,44 +8,26 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String
-  name      String?
-  cpf       String?  @unique // CPF opcional no DB, mas pode ser obrigatório no form
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // Adicionar futuramente relações com despesas e receitas
-  // despesas Despesa[]
-  // receitas Receita[]
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  password     String
+  name         String?
+  cpf          String?       @unique
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  transactions Transaction[]
 }
 
-// Modelos para Despesas e Receitas (exemplo futuro)
-/*
-model Despesa {
+model Transaction {
   id          Int      @id @default(autoincrement())
-  descricao   String
-  valor       Float
-  data        DateTime
-  observacao  String?
+  description String
+  amount      Float
+  category    String
+  type        String
+  date        DateTime
   userId      Int
-  usuario     User     @relation(fields: [userId], references: [id])
-  // categoriaId Int
-  // categoria   CategoriaDespesa @relation(fields: [categoriaId], references: [id])
   createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-model Receita {
-  id          Int      @id @default(autoincrement())
-  descricao   String
-  valor       Float
-  data        DateTime
-  observacao  String?
-  userId      Int
-  usuario     User     @relation(fields: [userId], references: [id])
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  @@index([userId])
 }
-*/
